@@ -8,123 +8,23 @@ import Tooltip from '@/components/tooltip'
 import Accordion from '@/components/accordion'
 
 export default function PricingTabs() {
-  const prices = [
-    {
-      contacts: '1K',
-      plans: {
-        essential: '5',
-        premium: '9',
-        enterprise: '19'
-      }
-    },
-    {
-      contacts: '5K',
-      plans: {
-        essential: '19',
-        premium: '29',
-        enterprise: '59'
-      }
-    },
-    {
-      contacts: '10K',
-      plans: {
-        essential: '29',
-        premium: '49',
-        enterprise: '99'
-      }
-    },
-    {
-      contacts: '15K',
-      plans: {
-        essential: '39',
-        premium: '59',
-        enterprise: '119'
-      }
-    },
-    {
-      contacts: '1M',
-      plans: {
-        essential: '1,490',
-        premium: '2,490',
-        enterprise: '4,999'
-      }
-    },
-  ]
-
-  const [tier, setTier] = useState<number>(2)
-  const [segmentsWidth, setSegmentsWidth] = useState<string>('100%');
-  const [progress, setProgress] = useState<string>('0%');
-  const segments = prices.length - 1;
-
-  const calculateProgress = () => {
-    setSegmentsWidth(`${100 / segments}%`);
-    setProgress(`${100 / segments * tier}%`);
-  };
-
-  useEffect(() => {
-    calculateProgress();
-  }, [tier]);
-
-  const faqs = [
-    {
-      title: 'Can I use the product for free?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: false,
-    },
-    {
-      title: 'What payment methods can I use?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: false,
-    },
-    {
-      title: 'Can I change from monthly to yearly billing?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: false,
-    },
-    {
-      title: 'Can I use the tool for personal, client, and commercial projects?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: true,
-    },
-    {
-      title: 'How can I ask other questions about pricing?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: false,
-    },
-    {
-      title: 'Do you offer discount for students and no-profit companies?',
-      text: 'Absolutely! Grey allows you to create as many commercial graphics/images as you like, for yourself or your clients.',
-      active: false,
-    },
-  ]
+  const prices = {
+    essential: '5',
+    premium: '9',
+    enterprise: '19'
+  }
 
   return (
     <section>
       <div className="py-12 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="relative max-w-3xl mx-auto text-center pb-12">
-            <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Start your journey today</h2>
-            <p className="text-lg text-zinc-500">Start creating realtime design experiences for free. Upgrade for extra features and collaboration with your team.</p>
+            <h2 className="font-inter-tight text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Plans</h2>
+            <p className="text-lg text-zinc-500">Choose the plan that best fits your needs.</p>
           </div>
 
           {/* Pricing tabs component */}
           <div className="pb-12 md:pb-20">
-
-            {/* Pricing toggle */}
-            <div className="max-w-sm mx-auto lg:max-w-3xl space-y-3 mb-12 lg:mb-16">
-              <div className="text-center text-sm text-zinc-700 font-medium" x-text="`${prices[value].contacts} contacts/month`"></div>
-              <div className="relative flex items-center" style={{ '--progress': `${progress}`, '--segments-width': `${segmentsWidth}` } as React.CSSProperties}>
-                <div className="absolute left-2.5 right-2.5 h-1.5 bg-zinc-200 rounded-full overflow-hidden before:absolute before:inset-0 before:bg-linear-to-r before:from-zinc-400 before:to-zinc-800 before:[mask-image:linear-gradient(to_right,var(--color-white),var(--color-white)_var(--progress),transparent_var(--progress))] after:absolute after:inset-0 after:bg-[repeating-linear-gradient(to_right,transparent,transparent_calc(var(--segments-width)-1px),--theme(--color-white/.7)_calc(var(--segments-width)-1px),--theme(--color-white/.7)_calc(var(--segments-width)+1px))]" aria-hidden="true"></div>
-                <input className="relative appearance-none cursor-pointer w-full bg-transparent focus:outline-hidden [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-sm [&::-webkit-slider-thumb]:focus-visible:ring-3 [&::-webkit-slider-thumb]:focus-visible:ring-zinc-300 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-none [&::-moz-range-thumb]:shadow-sm [&::-moz-range-thumb]:focus-visible:ring-3 [&::-moz-range-thumb]:focus-visible:ring-zinc-300" type="range" min="0" max={prices.length - 1} aria-valuetext={`${prices[tier].contacts} contacts/month`} aria-label="Pricing Slider" onChange={e => setTier(parseInt(e.target.value))} />
-              </div>
-              <div>
-                <ul className="flex justify-between text-xs font-medium text-zinc-500 px-2.5">
-                  {prices.map((price, index) => (
-                    <li key={index} className="relative"><span className="absolute -translate-x-1/2">{price.contacts}</span></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
 
             <div className="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none">
 
@@ -135,7 +35,7 @@ export default function PricingTabs() {
                     <div className="text-lg text-zinc-900 font-semibold mb-1">Essential</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-zinc-900 font-bold text-2xl">$</span>
-                      <span className="text-zinc-900 font-bold text-3xl">{prices[tier].plans.essential}</span>
+                      <span className="text-zinc-900 font-bold text-3xl">{prices.essential}</span>
                       <span className="text-zinc-500 font-medium">/mo</span>
                     </div>
                     <div className="text-zinc-500">For power users who want access to creative features.</div>
@@ -209,7 +109,7 @@ export default function PricingTabs() {
                     <div className="text-lg text-zinc-200 font-semibold mb-1">Premium</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-zinc-200 font-bold text-2xl">$</span>
-                      <span className="text-zinc-200 font-bold text-3xl">{prices[tier].plans.premium}</span>
+                      <span className="text-zinc-200 font-bold text-3xl">{prices.premium}</span>
                       <span className="text-zinc-500 font-medium">/mo</span>
                     </div>
                     <div className="text-zinc-500">For creative organizations that need full control & support.</div>
@@ -282,7 +182,7 @@ export default function PricingTabs() {
                     <div className="text-lg text-zinc-900 font-semibold mb-1">Enterprise</div>
                     <div className="font-inter-tight inline-flex items-baseline mb-2">
                       <span className="text-zinc-900 font-bold text-2xl">$</span>
-                      <span className="text-zinc-900 font-bold text-3xl">{prices[tier].plans.enterprise}</span>
+                      <span className="text-zinc-900 font-bold text-3xl">{prices.enterprise}</span>
                       <span className="text-zinc-500 font-medium">/mo</span>
                     </div>
                     <div className="text-zinc-500">For creative organizations that need full control & support.</div>
@@ -351,18 +251,6 @@ export default function PricingTabs() {
             </div>
 
           </div>
-
-          {/* FAQs */}
-          <div className="max-w-2xl mx-auto">
-            <div className="space-y-2">
-              {faqs.map((faq, index) => (
-                <Accordion key={index} title={faq.title} id={`faqs-${index}`} active={faq.active}>
-                  {faq.text}
-                </Accordion>
-              ))}
-            </div>
-          </div>
-
         </div>
       </div>
     </section>

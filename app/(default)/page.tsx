@@ -10,6 +10,7 @@ import Features03 from '@/components/features-03'
 import PricingTabs from '@/components/pricing-tabs'
 import Testimonials from '@/components/testimonials'
 import Cta from '@/components/cta'
+import FAQ from '@/components/faq'
 
 export default function Home() {
   return (
@@ -17,9 +18,8 @@ export default function Home() {
       <Hero />
       <Features03 />
       <Features02 />
-      <Features01 />
       <PricingTabs />
-      <Testimonials />
+      <FAQ/>
       <Cta />
     </>
   )

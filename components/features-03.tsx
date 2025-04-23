@@ -44,7 +44,7 @@ export default function Features03() {
                 >
                   <Search className="text-zinc-400 mr-4 h-12 w-12" />
                   <div>
-                    <div className="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Market Research & Validation</div>
+                    <div className="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Research & Validate</div>
                     <div className="text-zinc-500">Pragmatik taps into live market data to assess demand, trends, and competitors—so you know your idea has real potential before moving forward.</div>
                   </div>
                 </button>

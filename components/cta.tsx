@@ -24,7 +24,7 @@ export default function Features02() {
             <p className="text-lg text-zinc-500 mb-8">Whether you're just starting out or looking to refine your vision, we’re here to help you make it real.</p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <div>
-                <a className="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="/request-demo">Connect with Us</a>
+                <a className="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="/contact">Connect with Us</a>
               </div>
               <div>
                 <a className="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="#0">Try for Free</a>

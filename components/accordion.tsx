@@ -26,7 +26,7 @@ export default function Accordion({
     <div className="bg-zinc-100 rounded-sm">
       <h2>
         <button
-          className="flex items-center justify-between w-full font-inter-tight text-left font-medium text-zinc-800 px-4 py-2.5"
+          className="flex items-center justify-between w-full font-inter-tight text-left font-medium text-zinc-200 [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] px-4 py-2.5"
           onClick={(e) => { e.preventDefault(); setAccordionOpen(!accordionOpen); }}
           aria-expanded={accordionOpen}
           aria-controls={`accordion-text-${id}`}
@@ -42,7 +42,7 @@ export default function Accordion({
         id={`accordion-text-${id}`}
         role="region"
         aria-labelledby={`accordion-title-${id}`}
-        className={`grid text-sm text-zinc-500 overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+        className={`grid text-sm [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] text-zinc-500 overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden">
           <p className="px-4 pb-3">

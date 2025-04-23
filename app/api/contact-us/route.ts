@@ -6,6 +6,11 @@ import { NextResponse } from 'next/server';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.RESEND_FROM;
 
+// Check if required environment variables are set
+if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM) {
+  console.error('Missing required environment variables: RESEND_API_KEY or RESEND_FROM');
+}
+
 export async function POST(request: Request) {
   try {
     // Parse the request body
@@ -15,6 +20,14 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: 'All fields are required' },
         { status: 400 }
+      );
+    }
+
+    // Check if fromEmail is defined
+    if (!fromEmail) {
+      return NextResponse.json(
+        { error: 'Server configuration error: Missing sender email' },
+        { status: 500 }
       );
     }
 

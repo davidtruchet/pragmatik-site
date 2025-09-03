@@ -1,8 +1,7 @@
 {
-  "scheduledpurge.name": "AGCO Workflow Purge",
+  "scheduledpurge.name": "SAMPLE Workflow Purge",
   "scheduledpurge.workflowStatus": "COMPLETED",
   "scheduledpurge.cron": "0 0 0 21 1/1 ? *",
   "scheduledpurge.daysold": 30,
   "scheduledpurge.modelIds": [ ]
 }
-curl -H "User-Agent: ELB-HealthChecker/2.0" -I [http://localhost:PORT/HEALTH_CHECK_PATH]http://localhost:PORT/HEALTH_CHECK_PATH

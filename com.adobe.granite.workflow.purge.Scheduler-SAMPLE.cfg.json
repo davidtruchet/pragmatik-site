@@ -5,3 +5,4 @@
   "scheduledpurge.daysold": 30,
   "scheduledpurge.modelIds": [ ]
 }
+curl -H "User-Agent: ELB-HealthChecker/2.0" -I [http://localhost:PORT/HEALTH_CHECK_PATH]http://localhost:PORT/HEALTH_CHECK_PATH
